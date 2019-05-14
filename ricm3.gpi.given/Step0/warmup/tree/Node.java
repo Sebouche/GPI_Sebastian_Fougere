@@ -39,8 +39,12 @@ public class Node {
 		if (name.contains(Tree.pathSeparatorString)) {
 			throw new IllegalArgumentException();
 		} else {
+			if(parent.child(name)!=null) {
+				throw new IllegalStateException();
+			}
 			this.m_parent = parent;
 			this.m_name = name;
+			this.m_children=new java.util.ArrayList<Node>();
 			this.m_parent.m_children.add(this);
 		}
 	}
@@ -73,7 +77,7 @@ public class Node {
 
 	public String path() {
 		if (this.m_parent == null) {
-			return this.m_name+Tree.pathSeparatorString;
+			return this.m_name;
 		}
 		return this.m_parent.path() + Tree.pathSeparatorString + this.m_name;
 	}
@@ -91,13 +95,13 @@ public class Node {
 		Iterator<Node> child_iter = this.children();
 		while(child_iter.hasNext()) {
 			Node tmp=child_iter.next();
-			if(tmp.m_name==name) {
+			if(tmp.m_name.equals(name)) {
 				return tmp;
 			}
 		}
-		Node tmp=new Node(this,name);
-		this.m_children.add(tmp);
-		return tmp;
+		//Node tmp=new Node(this,name);
+		//this.m_children.add(tmp);
+		return null;
 	}
 
 }

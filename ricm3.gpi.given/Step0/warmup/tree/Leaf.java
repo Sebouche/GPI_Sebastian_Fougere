@@ -18,7 +18,7 @@ public class Leaf extends Node {
 
   @Override
   public Iterator<Node> children() {
-	  return super.children();
+	  return null;
   }
   
   @Override

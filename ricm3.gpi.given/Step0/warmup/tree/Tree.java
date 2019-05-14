@@ -39,7 +39,7 @@ public class Tree extends Node {
 				Iterator<Node> tree_iter = tmp.children();
 				while (tree_iter.hasNext()) {
 					Node child = tree_iter.next();
-					if (child.m_name == split[i]) {
+					if (child.m_name.equals(split[i])) {
 						tmp = child;
 						found = true;
 						break;
@@ -47,14 +47,10 @@ public class Tree extends Node {
 				}
 				if (found == false) {
 					throw new NotFoundException(path);
-				} else {
-					if (tmp.path() == path) {
-						return tmp;
-					}
 				}
 			}
 		}
-		throw new NotFoundException(path);
+		return tmp;
 	}
 
 	/**
@@ -74,7 +70,32 @@ public class Tree extends Node {
 			}
 		} catch (NotFoundException e) {
 		}
+		String[] split = path.split(pathSeparatorString);
 		Node tmp = this;
+		boolean found;
+		for (int i = 1; i < split.length; i++) {
+			found = false;
+			Iterator<Node> tree_iter = tmp.children();
+			while (tree_iter.hasNext()) {
+				Node child = tree_iter.next();
+				if (child.m_name.equals(split[i])) {
+					tmp = child;
+					found = true;
+					break;
+				}
+			}
+			if (found == false) {
+				if (i != split.length-1) {
+					tmp = new Node(tmp, split[i]);
+				} else {
+					if (isLeaf) {
+						tmp = new Leaf(tmp, split[i]);
+					} else {
+						tmp = new Node(tmp, split[i]);
+					}
+				}
+			}
+		}
 		return tmp;
 	}
 
