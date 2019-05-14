@@ -2,44 +2,39 @@ package warmup.tree.tests;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import warmup.tree.Leaf;
 import warmup.tree.Node;
 import warmup.tree.NotFoundException;
 import warmup.tree.Tree;
 
-
-
-
-
-
 public class Testsperso {
 
-	public static void main(String[] args) {
-		try {
-				test00();
-		}
-		catch(Exception e) {
-			System.out.printf("Test 00 failed");
-			return;
-		}
-		try {
-			test01();
+	/*
+	 * tests before Junits
+	 * 
+	 * public static void main(String[] args) { try { test00(); } catch(Exception e)
+	 * { System.out.printf("Test 00 failed"); return; } try { test01(); }
+	 * catch(Exception e) { System.out.printf("Test 01 failed"); return; } try {
+	 * test02(); } catch(Exception e) { System.out.printf("Test 02 failed"); return;
+	 * } System.out.printf("Tests passed"); }
+	 */
+
+	@Before
+	public void before() {
+		// Executed before each test
 	}
-	catch(Exception e) {
-		System.out.printf("Test 01 failed");
-		return;
+
+	@After
+	public void after() {
+		// Executed after each test
 	}
-		try {
-			test02();
-	}
-	catch(Exception e) {
-		System.out.printf("Test 02 failed");
-		return;
-	}
-		System.out.printf("Tests passed");
-	}
-	
-	public static void test00() throws NotFoundException {
+
+	@Test
+	public void test00() throws NotFoundException {
 		Tree tree = new Tree();
 		assertTrue("".equals(tree.name()));
 		Node node1 = new Node(tree, "test");
@@ -48,7 +43,8 @@ public class Testsperso {
 		assertTrue(tree.child("test") == node1);
 	}
 
-	public static void test01() throws NotFoundException {
+	@Test
+	public void test01() throws NotFoundException {
 		Tree tree = new Tree();
 		Leaf leaf1 = new Leaf(tree, "test");
 		try {
@@ -58,7 +54,8 @@ public class Testsperso {
 		}
 	}
 
-	public static void test02() throws NotFoundException {
+	@Test
+	public void test02() throws NotFoundException {
 		Tree tree = new Tree();
 		tree.makePath("/test1/", true);
 		assertTrue(tree.child("test1") != null);
