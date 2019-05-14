@@ -1,0 +1,381 @@
+
+This is week-long readme for the GPI course.
+
+Planning:
+
+Step0:
+ This is an initial step, helping better software developers
+ transfer skills and knowledge to the others in the group:
+ 
+ - This is about simple object-oriented programming:
+	 - Simple tree
+	 - Simple layout tree
+ - This is also about learning unit testing with JUnit
+
+Step1: 
+ This step is your first steps with event-oriented programming
+ in the context of graphical user interfaces.
+ You are expected to use a personal Git repository and
+ work in small increments, using branches and merges.
+
+ You will develop your own widget toolkit for creating
+ graphical user interfaces. This will help you understand
+ and master existing widget toolkits like Java AWT or Swing.
+ 
+Step2:
+ This step is about continuing the development of
+ your toolkit, but really relying on the use of Git.
+ The goal is therefore two-fold. First, it is that
+ you finish your toolkit and learn how a toolkit works.
+ Second, it is to prepare you to be a team member
+ doing software development together using Git.
+ 
+==================================================
+Step0
+==================================================
+
+Step0 is the warmup for your team, it is mainly about the following:
+
+  - team building
+	- skill and knowledge transfer
+
+Working as a team is not as easy as it seems and it always start
+with the team members getting to know each other, what are their
+strengths and weaknesses. Your team has been composed with
+students with different level of programming skills, so
+learning who know what is a necessary starting point.
+
+Then, team work is about everyone in the team contributing.
+In the coming weeks, you will be coding a game, in Java.
+This is something that will require a decent level in
+object-oriented programming, something that some of
+you may not have acquired yet.
+
+This Step0 is to get your team started. This is individual
+coding but a team success or failure. Better developers will
+help the others. 
+
+A) Task: Object-Oriented Programming
+
+This task is about coding a tree in Java. The goal
+is that those who know how to do it will help those
+struggling with object-oriented programming:
+
+  - classes and objects
+  - the object graph
+	- the class graph, with relationships: extends and implements
+
+This is a team effort, even though each of you will do the coding
+on their own, but with the complete support of the rest of the team.
+
+Look in the source folder "Step0" in the given Eclipse projet,
+you will find several Java packages, look at the Java package:
+
+	- warmup.tree
+
+We gave you a starting point for coding a tree of nodes and leaves.
+Please, finish up the coding. It is only interersting if you do it
+as an evaluation of your object-oriented coding skills. Do it well,
+do it so that you do understand the code you write and the code we
+gave you. Ask questions to your team mates.
+
+Try to use your tree, write simple programs that tests if it works or
+not. Do not cheat, do not look in the Java pakcage warmup.tree.tests,
+it is based on JUnit testing, something we will look at pretty soon.
+But for now, please write your own tests, there is no better learning
+tool. So you will several classes, for example classes Test00, Test01,
+Test02, etc. Each class with a main method and will allow you to
+run and debug one test.
+
+B) JUnit testing
+
+So you finished the coding of your tree and you wrote your own tests.
+As a result, you notice that you have many test classes and it would
+be tedious to launch all of them over and over again.
+
+It is time to learn how to automate the testing process. For this,
+we will introduce the JUnit test framework, using the version 4,
+although the version 5 is already released.
+
+Look at the following Java package, in which we wrote some JUnit tests
+for the tree:
+
+	- warmup.tree.tests
+
+JUnit is useful for several reasons.
+First, it gives you a simple framework to structure your tests.
+Second, it gives you the ability to run all your tests easily and
+get a report of what is running and what is not.
+Third, it is nicely integrated in Eclipse, so it is really easy
+to use.
+
+Have a look at these online ressources:
+  JUnit Website
+				https://junit.org/junit4/
+  Eclipse JUnit Gest Started Guide
+				http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-junit.htm
+
+In Eclipse, adding JUnit to a Java project is really simple.
+Go back to the project properties, select "Java Build Patch"
+and then select the tab "Libraries". Click on the button "Add Library"
+and select "JUnit", version 4. That's it, couldn't be easier, right?
+
+Now, right-click on the class "AllTests" in the package "warmup.tree.tests",
+select "Debug As" or "Run As", as you always do to launch a class,
+but notice there is a new option now: "JUnit Test". Try it.
+
+B.1) Pass our tests
+
+Get your code to pass our tests.
+
+B.2) Transfer your tests as JUnit tests
+
+Take the tests you wrote and made them JUnit tests.
+
+So first, make them JUnit test classes, looking at
+what we did it with the class "TestsA".
+
+Then, add you test classes to the test suite "AllTests".
+Look at the class "AllTests", simply add your test classes
+in the list of test classes for that test suite.
+
+  import org.junit.runner.RunWith;
+  import org.junit.runners.Suite;
+  import org.junit.runners.Suite.SuiteClasses;
+
+  @RunWith(Suite.class)
+  @SuiteClasses({ TestsA.class, TestsB.class, TestC.class, })
+  public class AllTests {
+    
+  }
+
+Now, right-click on the class "AllTests" in the package "warmup.tree.tests",
+select "Debug As" or "Run As", and then "JUnit Test". See, Eclipse ran
+all our tests and yours. How cool is that? All tests at the click of a
+mouse, that is efficient.
+
+C) Team Evaluation
+
+This is an evaluation task. You have spent some times already working
+together, helping to improve the coding skills across your team.
+It is now time to evaluate if the coding skills have improved.
+So this task is a do-it-yourself task, with little help from
+the team at first. Of course, if you do block, ask for help.
+
+The goal is to help the team leaders to assess the skill-level
+of the team members so that they will best divide and dispatch
+the work to do in the coming weeks.
+
+So look at the following Java packages:
+
+	 - warmup.layout
+	 - warmup.layout.tests
+
+This task is to finish the coding of the package "warmup.layout"
+so that it passes the JUnit tests that we gave you in the package
+"warmup.layout.tests".
+
+Do this correctly since you will reuse that code in the next step.
+
+==================================================
+Step1
+==================================================
+
+Today is all about event-oriented programming, applied to graphics.
+As we discussed in the lecture this morning, graphics are
+programmed using event-oriented programming, a programming
+model where you react to events, mostly events triggered by
+end user actions such as typing on the keyboard or using a
+mouse.
+
+A) Using GIT
+
+Today, you will implement more features, we ask that you start
+using a personal Git repository. Use branches to develop features.
+
+Let's discuss the use of GIT first. It all starts with creating
+a local repository in your Eclipse project "ricm3.gpi.given" and
+making a first commit of the project contents.
+
+Then, you will think and divide your work in small
+increment, doing each increment in a branch, merging
+it back to the master. Only merge once you are happy with
+the coding and you tested that everything works.
+The master branch must remain a working code base,
+at all times.
+
+At first, avoid using multiple branches concurrently. 
+You will use only two branches: master and tmp.
+You will repetitively do you work in the branch "tmp",
+then merge it to the branch "master".
+Do not forget to test your features before merging
+them into your branch "master".
+
+You can try developing only one feature at a time at first,
+but we encourage you to start working with multiple features
+sooner than later to understand how branching and merging works.
+
+Do not be afraid, you can use branches to save versions of your work
+so that if you accidentally break your master branch
+you can restart from an earlier version.
+
+B) Graphics
+
+As we discussed in the lecture, there are plenty of toolkits
+around for coding fancy graphics, but these are usually complex
+and difficult to master. We will start with a simplified
+environment and you will code your very own toolkit, learning
+the concepts and how to use them.
+
+We wrapped for you the Java AWT framework for graphics,
+into a small and easy to understand framework, look in
+the project "ricm3.gpi" in the source folder "public"
+and in the Java package "ricm3.gpi.gui". Look at the
+class "WindowBasics" to see a typical usage, 
+the "HelloWorld" example for graphics.
+
+Make sure that all team members do understand the
+basics of graphics.
+
+C) Components and Containers
+
+Once you understand the class WindowBasics, in the Java
+package ricm3.gpi, you can start implementing your toolkit,
+which is very much like the layout tree you coded yesterday,
+with graphics added. Look at the class "Component" and "Container",
+that should both feel very familiar to you.
+
+Look at the class LayoutExample as a simple example
+and get it to work. The layout is what is called
+a border layout that lays out the children of a container
+in five regions: north, south, east, west, and center.
+
+So your first task is to get the layout tree to work,
+using your experience from yesteday. Ignore at first
+the click listener.
+
+You second task is to get the click listener to work.
+For that, you will need to connect to your layout tree
+the raw graphic events that you studied and understood
+with the class "WindowBasics". 
+
+D) Draw Canvas
+
+This is the last task for this step, with an emphasis on
+using your toolkit, rather than coding it.
+
+The goal is to write a small application that will allow
+you to draw lines on the screen. Look at the
+class "DrawCanvasSample" and the class "DrawCanvas",
+everything you need is explained in the source code.
+
+Have fun.
+
+==================================================
+Step2
+==================================================
+
+This step is about continuing the development of
+your toolkit, but really relying on the use of Git.
+The goal is therefore two-fold. First, it is that
+you finish your toolkit and learn how a toolkit works.
+Second, it is to prepare you to be a team member
+doing software development together using Git.
+
+In this step, you will use different branches
+to implement different features and do merges.
+This requires to think about the features and
+the different coding tasks that are involved.
+Then, you must do a Gantt diagram to understand
+how to organise the corresponding tasks.
+
+A) Proposed features:
+
+Given the proposed features to develop,
+you must design the corresponding tasks and
+organize them into a Gantt diagram.
+
+Feature (1)
+  Implement and test the label widget (class Label).
+
+Feature (2)
+  Implement and test the button widget (class Widget).
+	No support yet for the action listener.
+
+Feature (3)
+  Add the support for the action listener.
+
+
+B) More features:
+
+The features are already coded, your job is to
+merge them into your code base. This simulates
+someone giving you their work. Not as it should
+happen, but typically as it may happen often.
+What are we talking about? Well, the merge will
+require to fix some issues. This way, you will learn
+how to integrate somebody's work and fix related issue.
+
+Make sure first that you are in your branch "work"
+and make sure that everything has been committed
+and merged to the branch "master".
+
+Make sure also that you do not have any untracked
+files. If you do, either track them by adding them
+and commit, or just delete them from the file system.
+If you want to preserve them, just move them somewhere
+else.
+
+OK, so everything is clean, committed, and merged.
+so it is time to integrate that work that we prepared
+for you. For your project "ricm3.gpi.given", 
+just add to the Eclipse build path the source
+folder "Step2.Part2". As you do so, you will
+see that Eclipse is unhappy, the Java compiler
+suddenly complains about compilation errors.
+
+So what happens?
+
+Where are the errors? In the new code.
+
+Can we say the new code is broken? Maybe, maybe not.
+Now it is the time to take your time...
+
+Browse the code, try to understand what is going on.
+Normally, you should be able to rapidly understand
+what happened.
+
+Do not modify the classes BorderLayout and FlowLayout.
+These are correct. These are hard to implement, this is
+why we gave them to you. That code works. The classes
+that need to be adapted are the class Container and
+the class Component.
+
+So what Git situation are we simulating here?
+The guy that did the work started modifying the
+class Container and Component, adding new fields and methods,
+that he or she needed. But in giving you the work, he or she forgot
+those updates.
+
+  - the concept of a preferred size
+	- the concept of a layout manager
+	- the concept of asking for a layout of a container
+
+You can have a look at examples, with the
+classes "BorderLayoutExample" and "FlowLayoutExample".
+
+Alright then, add the missing functionalities in
+the classes "Component" and "Container".
+Looking at the given examples, it should not be
+that hard:
+
+  - class BorderLayoutExample
+	- class FlowLayoutExample.
+
+Make sure to get the given examples working.
+
+If you are not clear what layout managers are
+or what a border layout or a flow layout should
+look like, you can Google these concepts, they
+are available in Java AWT (Abstract Widget Toolkit);
+there is plenty of available information on the Web.
