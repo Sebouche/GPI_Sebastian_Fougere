@@ -1,5 +1,9 @@
 package warmup.layout;
 
+import java.util.List;
+import java.util.Iterator;
+
+
 /**
  * This is a container within a tree of containers and components.
  * A container is a component that has children components.
@@ -11,12 +15,16 @@ package warmup.layout;
 
 public class Container extends Component {
 
+	List<Component> m_children;	
+	
   Container() {
-    throw new Error("Not Yet Implemented");
+	  super();
+	  m_children=new java.util.ArrayList<Component>();
   }
 
   public Container(Container parent) {
-    throw new Error("Not Yet Implemented");
+	  super(parent);
+	  m_children=new java.util.ArrayList<Component>();
   }
 
   /**
@@ -24,7 +32,13 @@ public class Container extends Component {
    *         children to this container
    */
   public int childrenCount() {
-    throw new Error("Not Yet Implemented");
+	  int i=0;
+	  Iterator<Component> iter=this.m_children.iterator();
+	  while(iter.hasNext()) {
+		  iter.next();
+		  i++;
+	  }
+	  return i;
   }
 
   /**
@@ -32,8 +46,17 @@ public class Container extends Component {
    *         index.
    */
   public Component childrenAt(int i) {
-    throw new Error("Not Yet Implemented");
-  }
+	  int j=0;
+	  Iterator<Component> iter=this.m_children.iterator();
+	  while(iter.hasNext()) {
+		  Component tmp=iter.next();
+		  if(j==i) {
+			  return tmp;
+		  }
+		  j++;
+	  }
+	  return null;
+	  }
 
   /**
    * Select the component, on top, at the given location.
@@ -44,7 +67,17 @@ public class Container extends Component {
    * @return this selected component 
    */
   public Component select(int x, int y) {
-    throw new Error("Not Yet Implemented");
+	  if(this.inside(x,y)) {
+	  Iterator<Component> iter=this.m_children.iterator();
+	  while(iter.hasNext()) {
+		  Component tmp=iter.next();
+		  if(tmp.inside(x, y)) {
+			  return tmp.select(x, y);
+		  }
+	  }
+	  return this;
+	  }
+	  return null; 
   }
 
 }
