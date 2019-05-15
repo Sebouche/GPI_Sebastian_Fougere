@@ -85,7 +85,7 @@ public class Root extends Container implements MouseListener, KeyListener, Windo
 			}
 			m_selected = tmp;
 		}
-		if (m_selected.m_ml != null) {
+		if (m_selected!=null && m_selected.m_ml != null) {
 			m_selected.m_ml.mouseMoved(x, y);
 		}
 	}
