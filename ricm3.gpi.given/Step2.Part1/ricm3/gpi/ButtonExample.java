@@ -70,7 +70,7 @@ public class ButtonExample implements Runnable {
 		b = new Button(root);
 		b.setLabel(label);
 		b.setFont(font);
-		b.setBounds(50, 0, 200, 50);
+		b.setBounds(50, 0, 300, (int) font.getSize());
 		al = new ButtonListener(b, "Rasp-Pi Label");
 		b.setActionListener(al);
 		root.repaint();
