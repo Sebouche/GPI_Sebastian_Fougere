@@ -54,7 +54,7 @@ public class Button extends Component {
 				g.setColor(Color.black);
 				g.setFont(m_font);				
 			}
-			g.drawString(m_label, l.x()+m_x, l.y()+m_y);
+			g.drawString(m_label, l.x(), l.y()+(int) m_font.getSize());
 			
 		} else {
 			if (pressed) {
