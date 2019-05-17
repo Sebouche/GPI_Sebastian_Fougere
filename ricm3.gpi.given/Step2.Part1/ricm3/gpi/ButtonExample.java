@@ -55,7 +55,7 @@ public class ButtonExample implements Runnable {
 		l = new Label(root, "label");
 		l.setFont(font);
 		l.setForeground(Color.cyan);
-		l.setBounds(400, 400, 50, 50);
+		l.setBounds(400, 100, 200, 100);
 
 		i1 = loadImage(m_win, "images/raspberry-pi-color.png");
 		i2 = loadImage(m_win, "images/raspberry-pi.png");
@@ -70,7 +70,7 @@ public class ButtonExample implements Runnable {
 		b = new Button(root);
 		b.setLabel(label);
 		b.setFont(font);
-		b.setBounds(50, 50, 200, 50);
+		b.setBounds(50, 50, 400, 70);
 		al = new ButtonListener(b, "Rasp-Pi Label");
 		b.setActionListener(al);
 		root.repaint();
