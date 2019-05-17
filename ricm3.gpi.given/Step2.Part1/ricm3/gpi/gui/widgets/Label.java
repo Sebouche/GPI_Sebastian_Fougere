@@ -46,9 +46,7 @@ public class Label extends Component {
 	public void paint(Graphics g) {
 		g.setColor(m_fgColor);
 		g.setFont(m_font);
-		Location l = new Location(0, 0);
-		this.toGlobal(l);
-		g.drawString(m_chars, 0, m_chars.length, l.x(), l.y());
+		g.drawString(m_chars, 0, m_chars.length, 0, m_y);
 	}
 
 }

@@ -43,8 +43,6 @@ public class Button extends Component {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		Location l = new Location(0, 0);
-		this.toGlobal(l);
 		if (this.m_released == null || this.m_pressed == null) {
 			if(pressed) {
 			g.setColor(m_fgColor);
@@ -58,9 +56,9 @@ public class Button extends Component {
 			
 		} else {
 			if (pressed) {
-				g.drawImage(m_pressed, l.x(), l.y(), m_width, m_height);
+				g.drawImage(m_pressed,0 , 0, m_width, m_height);
 			} else {
-				g.drawImage(m_released, l.x(), l.y(), m_width, m_height);
+				g.drawImage(m_released, 0, 0, m_width, m_height);
 			}
 		}
 	}

@@ -82,7 +82,10 @@ public class Container extends Component {
 		super.paint(g);
 		Iterator<Component> iter = this.m_children.iterator();
 		while(iter.hasNext()) {
-			iter.next().paint(g);
+			Component child=iter.next();
+			Graphics g_child=g.create(child.m_x, child.m_y, child.m_width, child.m_height);
+			child.paint(g_child);
+			g_child.dispose();
 		}
 	}
 

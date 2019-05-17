@@ -37,13 +37,11 @@ public class Canvas extends Component {
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(m_bgColor);
-		Location location = new Location();
-		toGlobal(location);
-		g.fillRect(location.x(), location.y(), m_width, m_height);
+		g.fillRect(0,0, m_width, m_height);
 		if (!c_pressed) {
 			System.out.printf("test\n");
 			g.setColor(m_fgColor);
-			g.drawLine(location1.x(), location1.y(), location2.x(), location2.y());
+			g.drawLine(location1.x()-m_x, location1.y()-m_y, location2.x()-m_x, location2.y()-m_y);
 		}
 	}
 
